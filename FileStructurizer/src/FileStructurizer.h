@@ -1,10 +1,10 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
+
 #include <ui_FileStructurizer.h>
 
-class FileStructurizer : public QMainWindow
-{
+class FileStructurizer : public QMainWindow {
     Q_OBJECT
 
 public:
@@ -12,4 +12,5 @@ public:
 
 private:
     Ui::FileStructurizerClass ui;
+
 };

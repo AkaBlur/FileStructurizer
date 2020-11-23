@@ -28,7 +28,7 @@ set(FS_RES ../${PROJECT_NAME}/res)
 set(FS_BUILD ../build)
 
 #Set the output directory of generated bins
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin/${CMAKE_BUILD_TYPE})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY bin/${CMAKE_BUILD_TYPE})
 
 #Qt5 settings
 set(CMAKE_PREFIX_PATH ${Qt5InstallPath})
@@ -85,7 +85,7 @@ add_executable(FileStructurizer
 )
 
 #Include source and resource directories for the compiler
-target_include_directories(${PROJECT_NAME} PRIVATE ../)
+target_include_directories(${PROJECT_NAME} PRIVATE /)
 target_include_directories(${PROJECT_NAME} PRIVATE ${FS_SOURCE})
 target_include_directories(${PROJECT_NAME} PRIVATE ${FS_RES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${FS_BUILD})
