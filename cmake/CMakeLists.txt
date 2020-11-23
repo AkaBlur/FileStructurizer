@@ -16,7 +16,7 @@ file(STRINGS cmake.prjconf CONFIG_CONTENT)
 foreach(NAME_AND_VALUE ${CONFIG_CONTENT})
 	string(REGEX REPLACE "^[ ]+" "" NAME_AND_VALUE ${NAME_AND_VALUE})
 	string(REGEX MATCH "^[^=]+" CONF_NAME ${NAME_AND_VALUE})
-	string(REPLACE "${CONF_NAME}" "" CONF_VALUE ${NAME_AND_VALUE})
+	string(REPLACE "${CONF_NAME}=" "" CONF_VALUE ${NAME_AND_VALUE})
 	set(${CONF_NAME} ${CONF_VALUE})
 endforeach()
 
