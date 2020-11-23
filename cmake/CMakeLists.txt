@@ -69,7 +69,7 @@ list(TRANSFORM ${PROJECT_NAME}_UI PREPEND ${FS_RES}/)
 #Create a variable for all headers from the UIC so that the original
 #variable for the source files doesn't get modified (for later including it)
 set(${PROJECT_NAME}_UI_HEADERS ${${PROJECT_NAME}_UI})
-qt_wrap_ui(${PROJECT_NAME}_UI_HEADERS ${${PROJECT_NAME}_UI})
+qt5_wrap_ui(${PROJECT_NAME}_UI_HEADERS ${${PROJECT_NAME}_UI})
 #Include the resource directory for the UIC to search for the *.ui files
 set(CMAKE_AUTOUIC_SEARCH_PATHS ${FS_RES})
 
