@@ -2,10 +2,18 @@
 set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_SOURCE_DIR}/res/ui)
 
 #Generate the executable
-add_executable(
-	${PROJECT_NAME}
-	WIN32
-	main.cpp)
+if(WIN32)
+	add_executable(
+		${PROJECT_NAME}
+		WIN32
+		main.cpp)
+		
+else()
+	add_executable(
+		${PROJECT_NAME}
+		main.cpp)
+		
+endif()
 
 #Add a source group for the main.cpp (files in the root in general)
 source_group(
