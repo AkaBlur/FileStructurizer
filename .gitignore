@@ -1,23 +1,2 @@
-#VS Project files
-*.vcxproj
-*.vcxproj.filters
-*.vcxproj.user
-*.sln
-.vs
-
-#Client side batch files
-*.bat
-
-#CMake stuff
-*.cmake
-CMakeCache.txt
-CMakeFiles
-
-bin/*
-Debug
-FileStructurizer.dir
-FileStructurizer_autogen
-x64
-ui*.h
-
-!.keep
+#Main build directory
+build
