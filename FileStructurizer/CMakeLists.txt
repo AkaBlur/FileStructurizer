@@ -122,7 +122,8 @@ if(WIN32)
 			COMMAND ${CMAKE_COMMAND} -E remove_directory ${CMAKE_BINARY_DIR}/windeployqt_temp
 			COMMAND
 				${Qt5InstallPath}/bin/windeployqt.exe ${BINARIES_TYPE} --no-translations --compiler-runtime --no-system-d3d-compiler
-				--no-angle --no-webkit2 --no-quick-import --dir ${CMAKE_BINARY_DIR}/windeployqt_temp $<TARGET_FILE:${PROJECT_NAME}>)
+				--no-angle --no-webkit2 --no-quick-import --dir ${CMAKE_BINARY_DIR}/windeployqt_temp $<TARGET_FILE:${PROJECT_NAME}>
+			COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_BINARY_DIR}/windeployqt_temp $<TARGET_FILE_DIR:${PROJECT_NAME}>)
 		
 	else()
 		message("Unable to find Qt5InstallPath=${Qt5InstallPath}")
