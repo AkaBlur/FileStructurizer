@@ -95,10 +95,6 @@ source_group(
 source_group(
 	TREE "${PROJECT_SOURCE_DIR}"
 	FILES "core/FileStructurizer.h")
-add_custom_command(
-	TARGET ${PROJECT_NAME}
-	PRE_BUILD
-	COMMAND ${CMAKE_COMMAND} -E echo "${PROJECT_SOURCE_DIR}")
 
 #Link the necessary libs
 target_link_libraries(
@@ -119,11 +115,9 @@ if(WIN32)
 		add_custom_command(
 			TARGET ${PROJECT_NAME}
 			POST_BUILD
-			COMMAND ${CMAKE_COMMAND} -E remove_directory ${CMAKE_BINARY_DIR}/windeployqt_temp
 			COMMAND
 				${Qt5InstallPath}/bin/windeployqt.exe ${BINARIES_TYPE} --no-translations --compiler-runtime --no-system-d3d-compiler
-				--no-angle --no-webkit2 --no-quick-import --dir ${CMAKE_BINARY_DIR}/windeployqt_temp $<TARGET_FILE:${PROJECT_NAME}>)
-		
+				--no-angle --no-webkit2 --no-quick-import $<TARGET_FILE:${PROJECT_NAME}>)
 	else()
 		message("Unable to find Qt5InstallPath=${Qt5InstallPath}")
 	endif()
