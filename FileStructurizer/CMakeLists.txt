@@ -117,13 +117,7 @@ if(WIN32)
 			POST_BUILD
 			COMMAND
 				${Qt5InstallPath}/bin/windeployqt.exe ${BINARIES_TYPE} --no-translations --compiler-runtime --no-system-d3d-compiler
-<<<<<<< HEAD
 				--no-angle --no-webkit2 --no-quick-import $<TARGET_FILE:${PROJECT_NAME}>)
-=======
-				--no-angle --no-webkit2 --no-quick-import --dir ${CMAKE_BINARY_DIR}/windeployqt_temp $<TARGET_FILE:${PROJECT_NAME}>
-			COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_BINARY_DIR}/windeployqt_temp $<TARGET_FILE_DIR:${PROJECT_NAME}>)
-		
->>>>>>> e19d8046b4c33dfedf8e118681bf313157e8a266
 	else()
 		message("Unable to find Qt5InstallPath=${Qt5InstallPath}")
 	endif()
