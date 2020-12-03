@@ -8,6 +8,12 @@ if(WIN32)
 		WIN32
 		main.cpp)
 		
+	set_target_properties(${PROJECT_NAME}
+		PROPERTIES
+		LINK_FLAGS
+		/SUBSYSTEM:CONSOLE)
+		
+		
 else()
 	add_executable(
 		${PROJECT_NAME}
@@ -23,12 +29,16 @@ source_group(
 #SET HEADERS HERE:
 #The necessary directory is prepended automatically
 set(${PROJECT_NAME}_HEADERS 
-	core/FileStructurizer.h)
+	core/FileStructurizer.h
+	core/FileStructScene.h
+	core/FileStructView.h)
 
 #SET SOURCE FILES HERE:
 #The necessary BUILD_INTERFACE generator expression is prepended automatically
 set(${PROJECT_NAME}_SOURCES 
-	core/FileStructurizer.cpp)
+	core/FileStructurizer.cpp
+	core/FileStructScene.cpp
+	core/FileStructView.cpp)
 
 #SET UI FILES HERE
 #The ui/ directory expression
@@ -91,10 +101,6 @@ target_sources(${PROJECT_NAME} PRIVATE ${${PROJECT_NAME}_RESOURCES})
 source_group(
 	TREE "${PROJECT_SOURCE_DIR}"
 	FILES ${${PROJECT_NAME}_RESOURCES})
-	
-source_group(
-	TREE "${PROJECT_SOURCE_DIR}"
-	FILES "core/FileStructurizer.h")
 
 #Link the necessary libs
 target_link_libraries(

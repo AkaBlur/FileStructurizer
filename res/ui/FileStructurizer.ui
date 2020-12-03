@@ -6,24 +6,59 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>1024</width>
+    <height>769</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1024</width>
+    <height>768</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>FileStructurizer</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QGraphicsView" name="mainFileView"/>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="pushButton_Empty">
+        <property name="text">
+         <string>Empty</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_Text">
+        <property name="text">
+         <string>Text</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_oneRect">
+        <property name="text">
+         <string>One Rect</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_ManyRect">
+        <property name="text">
+         <string>Many Rect</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="FileStructurizer.qrc"/>
+  <include location="../FileStructurizer.qrc"/>
  </resources>
  <connections/>
 </ui>
