@@ -4,21 +4,22 @@
 
 #include <ui_FileStructurizer.h>
 
-#include "FileStructScene.h"
-#include "FileStructView.h"
+#include "core/FileStructScene.h"
+#include "core/FileStructView.h"
 
 class FileStructurizer : public QMainWindow {
     Q_OBJECT
 
 public:
     FileStructurizer(QWidget *parent = Q_NULLPTR);
+    ~FileStructurizer();
 
 private:
     Ui::FileStructurizerClass ui;
 
-    //Main file view
+    // Main file view
     std::unique_ptr<FileStructView> m_fileView;
-    //Main file view scene
+    // Main file view scene
     FileStructScene m_fileScene;
 
 signals:

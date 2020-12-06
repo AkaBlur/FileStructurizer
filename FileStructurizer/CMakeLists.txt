@@ -29,16 +29,24 @@ source_group(
 #SET HEADERS HERE:
 #The necessary directory is prepended automatically
 set(${PROJECT_NAME}_HEADERS 
+	config/AppSettings.h
+	config/GraphicsSettings.h
+	config/GraphicsSettings.h
 	core/FileStructurizer.h
 	core/FileStructScene.h
-	core/FileStructView.h)
+	core/FileStructView.h
+	graphics/RectFolder.h)
 
 #SET SOURCE FILES HERE:
 #The necessary BUILD_INTERFACE generator expression is prepended automatically
-set(${PROJECT_NAME}_SOURCES 
+set(${PROJECT_NAME}_SOURCES
+	config/AppSettings.cpp
+	config/GraphicsSettings.cpp
+	config/GraphicsSettings.cpp
 	core/FileStructurizer.cpp
 	core/FileStructScene.cpp
-	core/FileStructView.cpp)
+	core/FileStructView.cpp
+	graphics/RectFolder.cpp)
 
 #SET UI FILES HERE
 #The ui/ directory expression
@@ -64,7 +72,7 @@ target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 target_include_directories(
 	${PROJECT_NAME} 
 	PRIVATE 
-	${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/core)
+	${CMAKE_SOURCE_DIR}/${PROJECT_NAME})
 
 #Add the source files
 list(TRANSFORM ${PROJECT_NAME}_SOURCES PREPEND ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/)

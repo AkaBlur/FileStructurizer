@@ -7,10 +7,10 @@
 
 #include "FileStructScene.h"
 
-//Zooming modifiers for the view
+// Zooming modifiers for the view
 #define VIEW_ZOOM_IN 1.25f
 #define VIEW_ZOOM_OUT 0.8f
-//Zooming boundaries
+// Zooming boundaries
 #define VIEW_MAXZOOM 10.0f
 #define VIEW_MINZOOM 0.5f
 
@@ -18,19 +18,22 @@ class FileStructView : public QGraphicsView {
 	Q_OBJECT
 
 public:
-	//Main constructor with scene to show
+	// Main constructor with scene to show
 	FileStructView(FileStructScene* scene);
 
 protected:
+	// Filter for FileStructScene
 	bool eventFilter(QObject* watched, QEvent* event) override;
 
+	// Mouse events
 	void wheelEvent(QWheelEvent* event) override;
 
 private:
-	//Main scene pointer
+	// Main scene pointer
 	FileStructScene* m_scene;
 
 private slots:
+	// Center on one item
 	void centerOnItem(QGraphicsItem* item);
 
 };

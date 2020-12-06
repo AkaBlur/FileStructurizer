@@ -1,2 +1,4 @@
 #Main build directory
 build
+#Links to files (e.g. using a link to the .ini file)
+*.lnk

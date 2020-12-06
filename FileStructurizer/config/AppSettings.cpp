@@ -8,3 +8,21 @@ AppSettings& AppSettings::get() {
 	return _settings;
 
 }
+
+QVariant AppSettings::m_getNewValue(const QString& name, const QVariant& value) {
+	if (!get().m_qSettings.contains(name)) {
+		AppSettings::setValue(name, value);
+
+	}
+
+	return AppSettings::getValue(name, value);
+
+}
+
+void AppSettings::m_setNewValue(const QString& name, const QVariant& value) {
+	if (!get().m_qSettings.contains(name)) {
+		get().setValue(name, value);
+
+	}
+
+}

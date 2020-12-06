@@ -2,7 +2,9 @@
 
 #include <QGraphicsScene>
 #include <QGraphicsSceneEvent>
-#include <QGraphicsItem>
+#include <QGraphicsItemGroup>
+
+#include <QKeyEvent>
 
 class TestText;
 class TestRect;
@@ -13,38 +15,21 @@ class FileStructScene : public QGraphicsScene {
 public:
 	FileStructScene();
 
-private:
-	//Storage for all items in the scene
-	QHash<QString, QGraphicsItem*> m_sceneItems;
+protected:
+	void keyPressEvent(QKeyEvent* event) override;
 
-	//Add a new item group
-	void m_addItem(QString name, QGraphicsItem* item);
+private:
+	// Storage for all items in the scene
+	QHash<QString, QGraphicsItemGroup*> m_sceneItems;
+
+	// Add a new item group
+	void m_addItem(QString name, QGraphicsItemGroup* item);
 	void m_removeAllItems();
 
 signals:
-	void centerOnItem(QGraphicsItem* item);
+	void centerOnItem(QGraphicsItemGroup* item);
 
 public slots:
 	void setTestScene(int scene);
-
-};
-
-class TestText : public QGraphicsTextItem {
-public:
-	TestText(QString text);
-
-protected:
-	void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
-	void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
-
-};
-
-class TestRect : public QGraphicsRectItem {
-public:
-	TestRect(int x, int y, int width, int height);
-
-protected:
-	void mousePressEvent(QGraphicsSceneMouseEvent* mouseEvent) override;
-	void mouseReleaseEvent(QGraphicsSceneMouseEvent* mouseEvent) override;
 
 };
